@@ -11,7 +11,8 @@ from . import login_manager, db
 # Blueprint Configuration
 auth_blueprint = Blueprint("auth_blueprint", __name__, template_folder="templates", static_folder="static")
 
-
+def role(role)
+    #create function to check user role and if none assign subscriber role
 @auth_blueprint.route("/signup", methods=["GET", "POST"])
 def signup():
     """
