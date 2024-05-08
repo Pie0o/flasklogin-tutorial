@@ -1,9 +1,10 @@
 """Initialize app."""
 
 from flask import Flask
-import flask_login
-from flask_login import LoginManager
-from flask_sqlalchemy import SQLAlchemy
+#import flask_login 
+from flask_sqlalchemy import SQLAlchemy 
+from Flask_Login import LoginManager
+
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -19,7 +20,7 @@ def create_app():
     login_manager.init_app(app)
 
     with app.app_context():
-        from . import auth, routes
+        from flask_login_tutorial import auth, routes
         from .assets import compile_static_assets
 
         # Register Blueprints
