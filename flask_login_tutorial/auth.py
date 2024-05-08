@@ -3,12 +3,11 @@
 from typing import Optional
 
 from flask import Blueprint, flash, redirect, render_template, request, url_for
-from flask_login import current_user, login_user
+from Flask_Login import LoginManager, login_user, login_required, current_user
 
-from . import login_manager
-from .forms import LoginForm, SignupForm
-from .models import User, db
-
+from flask_login_tutorial.forms import LoginForm, SignupForm
+from flask_login_tutorial.models import User
+from . import login_manager, db
 # Blueprint Configuration
 auth_blueprint = Blueprint("auth_blueprint", __name__, template_folder="templates", static_folder="static")
 
@@ -82,7 +81,8 @@ def load_user(user_id: int) -> Optional[User]:
     """
     if user_id is not None:
         return User.query.get(user_id)
-    return None
+    else:
+        return None
 
 
 @login_manager.unauthorized_handler
