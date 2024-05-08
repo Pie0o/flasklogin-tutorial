@@ -1,6 +1,7 @@
 """Initialize app."""
 
 from flask import Flask
+import flask_login
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 
